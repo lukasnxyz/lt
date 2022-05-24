@@ -2,17 +2,26 @@
 # See LICENSE file for copyright and license details.
 
 CC = gcc
-SRCS := $(wildcard *.c)
-BINS := $(SRCS:%.c=%)
-DEPS = config.h
+SRC = lt.c
+OBJ = ${SRC:.c=.o}
+PREFIX = /usr/local
+MANPREFIX = ${PREFIX}/share/man
 
-all: ${bins}
+all: lt
 
-%: %.o
-	$(CC) $< -o $@
+.c.o:
+	${CC} -c ${CFLAGS} $<
 
-%.o: %.c
-	$(CC) -c $<
+lt: ${OBJ}
+	${CC} -o $@ ${OBJ}
 
 clean:
-	rm -rvf *.o ${BINS}
+	rm -f lt *.o
+
+install: all
+	mkdir -p ${DESTDIR}${PREFIX}/bin
+	cp -f lt ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/lt
+
+uninstall:
+	rm -f ${DESTDIR}${PREFIX}/bin/lt

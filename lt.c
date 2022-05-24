@@ -10,6 +10,9 @@ static char *getPath();
 static char *createDir();
 static void setupDir();
 
+static char *name;
+static char *type;
+
 char
 helpMessage() {
     fprintf(stderr, "latex template system\n");
@@ -58,6 +61,7 @@ char
     char *fullCommand = concatenate(command, getPath(), name);
     char *path = getPath();
     char *fullPath = strcat(path, name);
+    fullPath = strcat(fullPath, "/");
 
     system(fullCommand);
     return fullPath;
@@ -65,18 +69,18 @@ char
 
 void
 setupDir(char *path) {
-    char *templateLocation = concatenate(templateLocation/*foreward slash*/, type, ".tex");
+    char *template = concatenate(templatesLocation, type, ".tex");
+    char *oldPath = concatenate(path, type, ".tex");
+    char *newPath = concatenate(path, name, ".tex");
+    strcat(template, " ");
+    strcat(oldPath, " ");
+
+    system(concatenate("cp ", template, path));
+    system(concatenate("mv ", oldPath, newPath));
 }
 
 int
 main(int argc, char *argv[]) {
-
-    /*
-     * args
-     *  - "-n" for name of project
-     *  - "-t" for type of template
-     *  - "-h" for help message
-     */
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-t") == 0) {
             i++;
@@ -90,9 +94,6 @@ main(int argc, char *argv[]) {
         }
     }
 
-    printf("Name: %s\nType: %s\n", name, type);
-
     char *path = createDir();
-    printf("%s\n", path);
     setupDir(path);
 }
