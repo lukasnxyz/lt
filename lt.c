@@ -81,6 +81,12 @@ setupDir(char *path) {
 
 int
 main(int argc, char *argv[]) {
+
+    if (argc == 1) {
+        helpMessage();
+        return 0;
+    }
+
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-t") == 0) {
             i++;
