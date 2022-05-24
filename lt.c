@@ -1,3 +1,9 @@
+/* See LICENSE file for copyright and license details.
+ *
+ * latex template system is designed to make creating new latex
+ * projects much easier by using user predefined-templates, placing it
+ * into a custom directory and renaming it to what the user has specified
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
