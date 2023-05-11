@@ -4,22 +4,23 @@
  * projects much easier by using user predefined-templates, placing it
  * into a custom directory and renaming it to what the user has specified
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "config.h"
 
-static char helpMessage();
-static char *concatenate();
+static void helpMessage();
+static char *concatenate(const char *, const char *, const char *);
 static char *getPath();
 static char *createDir();
-static void setupDir();
+static void setupDir(char *);
 
 static char *name;
 static char *type;
 
-char
+void
 helpMessage() {
     fprintf(stderr, "latex template system\n");
     fprintf(stderr, "options:\n");
@@ -108,4 +109,5 @@ main(int argc, char *argv[]) {
 
     char *path = createDir();
     setupDir(path);
+    free(path);
 }
