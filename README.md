@@ -1,4 +1,4 @@
-### Latex Template System (lt)
+### LaTeX Template System (lt)
 
 #### Description
 lt makes creating new latex projects and files easier by using your own templates and placing them in your own project directory.
