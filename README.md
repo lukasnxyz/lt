@@ -17,4 +17,6 @@ Eake sure that the type you enter is the same as the name of the template that y
 
 #### Todo
 * Fix memory issues with strcat and memcpy
-* Fix opening file warning (integer to pointer conversion assigning to 'FILE *')
+* Fix opening file warning (integer to pointer conversion assigning to 'FILE \*')
+* Auto move default templates directory to <code>~/doc/</code>
+* Add ability to use with markdown as well
