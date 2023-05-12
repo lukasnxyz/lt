@@ -13,7 +13,7 @@ Give the path of your <code>.tex</code> templates folder in config.h, but make s
 
 #### Usage
 Example: <code>lt -t mla -n project</code><br>
-Eake sure that the type you enter is the same as the name of the template that you wish to use (without the <code>.tex</code> extension).
+Make sure that the type you enter is the same as the name of the template that you wish to use (without the <code>.tex</code> extension).
 
 #### Todo
 * Fix memory issues with strcat and memcpy
