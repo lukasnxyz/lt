@@ -1,0 +1,23 @@
+\documentclass{letter}
+
+% packages
+\usepackage{invoice}
+
+% header
+\address{My Name \\ My Street \\ My Zip\\ my@mail.com \\ etc}
+\signature{Fnord Prefake}
+\date{23. May 2009}
+
+\begin{document}
+
+  \begin{letter}{Customer name \\ Customer street \\ Customer ZIP}
+    \opening{Invoice no. 1}
+    My greeting
+    \begin{invoice}{Euro}{0}
+      \ProjectTitle{Example Project}%
+      \Fee{Development} {1000.00} {1}
+    \end{invoice}
+    \closing{My closing}
+  \end{letter}
+
+\end{document}
