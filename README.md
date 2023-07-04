@@ -1,5 +1,4 @@
 ### LaTeX Template System (lt)
-https://lukasn.xyz/posts/latex-template-system/
 
 #### Description
 lt makes creating new latex projects and files easier by using your own templates and placing them in your own project directory.
